@@ -12,8 +12,8 @@ RUN npm install --cache /tmp/empty-cache && \
 
 USER node
 
-# Não precisa expor uma porta fixa, mas pode manter para documentação
+# Apenas para documentação/local, não importa para Render
 EXPOSE 10000
 
-# Use a porta fornecida pelo Render
-CMD ["sh", "-c", "PORT=${PORT:-10000} node lib/server/server.js"]
+# Mudança principal: usar a porta que o Render fornece via variável PORT
+CMD ["sh", "-c", "node lib/server/server.js"]
