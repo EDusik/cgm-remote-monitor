@@ -15,5 +15,5 @@ USER node
 # Apenas para documentação/local, não importa para Render
 EXPOSE 10000
 
-# Escuta na porta fornecida pelo Render
-CMD ["sh", "-c", "PORT=${PORT} node lib/server/server.js"]
+# Garantir que o Node use a porta do Render
+CMD ["sh", "-c", "export PORT=${PORT:-10000} && node lib/server/server.js"]
