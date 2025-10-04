@@ -15,5 +15,5 @@ USER node
 # Apenas para documentação/local, não importa para Render
 EXPOSE 10000
 
-# Mudança principal: usar a porta que o Render fornece via variável PORT
-CMD ["sh", "-c", "node lib/server/server.js"]
+# Escuta na porta fornecida pelo Render
+CMD ["sh", "-c", "PORT=${PORT} node lib/server/server.js"]
